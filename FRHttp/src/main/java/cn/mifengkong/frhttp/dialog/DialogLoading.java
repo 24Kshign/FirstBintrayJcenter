@@ -70,8 +70,8 @@ public class DialogLoading extends ProgressDialog {
         //XML中设置无效，在代码中设置背景透明
         this.getWindow().setBackgroundDrawable(new ColorDrawable());
         setContentView(R.layout.progress_dialog);
-        mProgressBar = (ProgressBar) findViewById(R.id.progressbar);
-        mLoadingTv = (TextView) findViewById(R.id.message);
+        mProgressBar = findViewById(R.id.progressbar);
+        mLoadingTv = findViewById(R.id.message);
     }
 
 }
