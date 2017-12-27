@@ -22,10 +22,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import okhttp3.Cookie;
 import okhttp3.HttpUrl;
 
-/**
- * Created by Tamic on 2016-06-09.
- * {@link # https://github.com/NeglectedByBoss/RetrofitClient}
- */
 public class PersistentCookieStore {
     private static final String LOG_TAG = "PersistentCookieStore";
     private static final String COOKIE_PREFS = "Cookies_Prefs";
@@ -59,13 +55,13 @@ public class PersistentCookieStore {
         }
     }
 
-    protected String getCookieToken(Cookie cookie) {
+    private String getCookieToken(Cookie cookie) {
         return cookie.name() + "@" + cookie.domain();
     }
 
     public void add(HttpUrl url, Cookie cookie) {
         String name = getCookieToken(cookie);
-        FRLog.e("jiang", cookie.persistent() + "--");
+        FRLog.error(cookie.persistent() + "--");
         //将cookies缓存到内存中 如果缓存过期 就重置此cookie
         if (cookie.persistent()) {
             if (!cookies.containsKey(url.host())) {
@@ -87,7 +83,6 @@ public class PersistentCookieStore {
         }
 
     }
-
 
 
     public List<Cookie> get(HttpUrl url) {
@@ -138,7 +133,7 @@ public class PersistentCookieStore {
      * @param cookie 要序列化的cookie
      * @return 序列化之后的string
      */
-    protected String encodeCookie(SerializableOkHttpCookies cookie) {
+    private String encodeCookie(SerializableOkHttpCookies cookie) {
         if (cookie == null)
             return null;
         ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -159,7 +154,7 @@ public class PersistentCookieStore {
      * @param cookieString cookies string
      * @return cookie object
      */
-    protected Cookie decodeCookie(String cookieString) {
+    private Cookie decodeCookie(String cookieString) {
         byte[] bytes = hexStringToByteArray(cookieString);
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
         Cookie cookie = null;
@@ -181,7 +176,7 @@ public class PersistentCookieStore {
      * @param bytes byte array to be converted
      * @return string containing hex values
      */
-    protected String byteArrayToHexString(byte[] bytes) {
+    private String byteArrayToHexString(byte[] bytes) {
         StringBuilder sb = new StringBuilder(bytes.length * 2);
         for (byte element : bytes) {
             int v = element & 0xff;
@@ -199,7 +194,7 @@ public class PersistentCookieStore {
      * @param hexString string of hex-encoded values
      * @return decoded byte array
      */
-    protected byte[] hexStringToByteArray(String hexString) {
+    private byte[] hexStringToByteArray(String hexString) {
         int len = hexString.length();
         byte[] data = new byte[len / 2];
         for (int i = 0; i < len; i += 2) {

@@ -105,10 +105,6 @@ public class FRFileUtils {
 
     /**
      * 文件是否存在
-     *
-     * @param context
-     * @param fileName
-     * @return
      */
     public static boolean exists(Context context, String fileName) {
         return new File(context.getFilesDir(), fileName).exists();
@@ -149,8 +145,7 @@ public class FRFileUtils {
     /**
      * 存储文本数据
      *
-     * @param context  程序上下文
-     * @param fileName 文件名，要在系统内保持唯一
+     * @param filePath 文件名，要在系统内保持唯一
      * @param content  文本内容
      * @return boolean 存储成功的标志
      */

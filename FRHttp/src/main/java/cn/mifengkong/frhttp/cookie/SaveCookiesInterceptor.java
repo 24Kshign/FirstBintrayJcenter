@@ -32,9 +32,7 @@ public class SaveCookiesInterceptor implements Interceptor {
         Response originalResponse = chain.proceed(chain.request());
         if (!originalResponse.headers("Set-Cookie").isEmpty() && chain.request().url().toString().contains(loginUrl)) {
             HashSet<String> cookies = new HashSet<>();
-            for (String header : originalResponse.headers("Set-Cookie")) {
-                cookies.add(header);
-            }
+            cookies.addAll(originalResponse.headers("Set-Cookie"));
 
             FRSharedPreferences.setStringSet(CookieConstant.SP_NAME_COOKIES, CookieConstant.PREF_COOKIES, cookies);
         }

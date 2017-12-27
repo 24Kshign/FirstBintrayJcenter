@@ -34,7 +34,6 @@ public class CloudInterceptorUtil {
      * 设置请求头的Interceptor
      *
      * @return
-     * @throws Exception
      */
     public static Interceptor getCloudInterceptor(final boolean isKamao) {
         if (FRCloudAPIUtil.isUserCloudAPiHost())
