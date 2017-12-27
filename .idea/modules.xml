@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FRHttp/FRHttp.iml" filepath="$PROJECT_DIR$/FRHttp/FRHttp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FRTools/FRTools.iml" filepath="$PROJECT_DIR$/FRTools/FRTools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FirstBintrayJcenter.iml" filepath="$PROJECT_DIR$/FirstBintrayJcenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+    </modules>
+  </component>
+</project>
